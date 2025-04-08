@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/VIATEUR/Desktop/front%20end%20validation.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Form Validation</title>
+</head>
+<body>
+
+
+    
+<fieldset style="width: 300px;"><center>
+    <center><b>VALIDATION CHECK<hr> </b></center> <br><br>
+  <form id="myForm">
+    <label>First Name:</label><br>
+    <input type="text" name="firstName" required=""><br>
+    <label>Last Name: </label><br>
+    <input type="text" name="lastName" required=""><br>
+    <label>Email: </label><br>
+   
+    <input type="text" name="email" required=""><br>
+    <label>password: </label><br>
+    <input type="text" name="password" required=""><br>
+    <label>Phone number: </label><br>
+    <input type="text" name="phone"><br>
+    <button type="submit">Submit</button>
+  </form></center></fieldset>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      const inputs = this.querySelectorAll("input[type='text'][required]");
+      for (let input of inputs) {
+        if (input.value.trim() === "") {
+          alert("Please fill in all required fields.");
+          input.focus();
+          event.preventDefault(); // stop form submission
+          return;
+        }
+      }
+    });
+  </script>
+
+
+
+</body></html>
